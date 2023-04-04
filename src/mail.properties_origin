@@ -1,0 +1,4 @@
+mail.smtp.host=<ADD HOSTNAME>
+mail.smtp.from=<SENDER EMAIL-ADDRESS>
+mail.smtp.username=<ADD USERNAME>
+mail.smtp.password=<ADD PASSWORD>
