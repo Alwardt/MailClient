@@ -1,6 +1,6 @@
 import javax.mail.Message;
 import javax.mail.Session;
-
+// kommentar
 public interface SenderInterface {
 
     Session getInstance();
