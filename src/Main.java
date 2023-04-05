@@ -7,11 +7,12 @@ import java.util.Properties;
 import java.util.Scanner;
 
 public class Main {
+    private static final String PROPERTY_NAME = "mail.properties";
 
     public boolean checkIfPropertyExists() {
         String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
         System.out.println(rootPath.split("out")[0]);
-        String appConfigPath = rootPath.split("out")[0] + "mail.properties";
+        String appConfigPath = rootPath.split("out")[0] + PROPERTY_NAME;
 
         File file = new File(appConfigPath);
         return file.exists();
@@ -43,7 +44,9 @@ public class Main {
         return props;
     }
 
-    public void writeProperties(Properties proeprties) {
+    public void writeProperties(Properties properties) throws Exception {
+        properties.store(new FileOutputStream(PROPERTY_NAME), null);
+
 
     }
     public Properties readProperties() throws FileNotFoundException, IOException {
@@ -51,7 +54,7 @@ public class Main {
         Properties props = new Properties();
         String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
         System.out.println(rootPath.split("out")[0]);
-        String appConfigPath = rootPath.split("out")[0] + "mail.properties";
+        String appConfigPath = rootPath.split("out")[0] + PROPERTY_NAME;
         System.out.println(appConfigPath);
 
         props.load(new FileInputStream(appConfigPath));
