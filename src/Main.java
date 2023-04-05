@@ -18,7 +18,29 @@ public class Main {
     }
 
     public Properties requestProperties() {
-        return null;
+        System.out.println("Create new Properties: ");
+        Properties props = new Properties();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("SMTP Hostname > ");
+        String hostname = scanner.nextLine();
+        props.put("mail.smtp.host", hostname);
+
+        System.out.print("From E-Mail > ");
+        String fromMail = scanner.nextLine();
+        props.put("mail.smtp.from", fromMail);
+
+        System.out.print("Username > ");
+        String username = scanner.nextLine();
+        props.put("mail.smtp.username", username);
+
+        System.out.print("Password > ");
+        String password = scanner.nextLine();
+        props.put("mail.smtp.password", password);
+
+        //System.out.println(props);
+
+        return props;
     }
 
     public void writeProperties(Properties proeprties) {
@@ -68,10 +90,6 @@ public class Main {
         Message msg = smtp.createMessage(session, mail);
         smtp.send(msg);
 
-        //java-mail@beck-homes.com
-        //axv8@50T4
-        //SMTP: mail.beck-homes.com
-        //SMTP-Port: 465
 
 
 
