@@ -8,21 +8,20 @@ import java.util.Scanner;
 
 public class Main {
 
-    public boolean checkIfPropertyExist(){
+    public boolean checkIfPropertyExists() {
         String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
         System.out.println(rootPath.split("out")[0]);
         String appConfigPath = rootPath.split("out")[0] + "mail.properties";
 
         File file = new File(appConfigPath);
-
         return file.exists();
     }
 
-    public Properties requestProperties(){
+    public Properties requestProperties() {
         return null;
     }
 
-    public void writeProperties(){
+    public void writeProperties(Properties proeprties) {
 
     }
     public Properties readProperties() throws FileNotFoundException, IOException {
@@ -40,7 +39,7 @@ public class Main {
     public static void main(String[] args) throws Exception {
         Main main = new Main();
 
-        if(!main.checkIfPropertyExist()){
+        if(!main.checkIfPropertyExists()){
             System.out.println("WARN: properties not found.");
             System.out.println("WARN: creating new properties.");
             Properties properties = main.requestProperties();
